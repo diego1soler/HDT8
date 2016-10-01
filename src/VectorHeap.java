@@ -52,6 +52,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 		//post: moves node at index lead up to appropiate position
 		int parent = parent(leaf);
 		E value = data.get(leaf);
+		//Aqui se compara el codigo ASCII
 		while(leaf>0 &&
 				(value.compareTo(data.get(parent))<0)){
 			data.set(leaf, data.get(parent));
@@ -66,23 +67,26 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 		//post: moves node at index root down to appropiate position in subtree
 		int heapSize = data.size();
 		E value = data.get(root);
-		while(root<heapSize){
+		while (root < heapSize) 
+		{
 			int childpos = left(root);
-			if(childpos<heapSize){
-				if((right(root) < heapSize) &&
-						((data.get(childpos+1)).compareTo(data.get(childpos))<0)){
+			if (childpos < heapSize)
+			{
+				if ((right(root) < heapSize) && ((data.get(childpos+1)).compareTo (data.get(childpos)) < 0))
+				{
 					childpos++;
 				}
-				//Assert: childpos indexes smaller of two children
-				if((data.get(childpos)).compareTo(value)<0){
-					data.set(root, data.get(childpos));
-					root = childpos; //keep moving down
-				} else {
-					data.set(root, value);
-					return;
-				}
-			} else {
-				data.set(root, value);
+				// Assert: childpos indexes smaller of two children
+				if ((data.get(childpos)).compareTo (value) < 0)
+				{
+					data.set(root,data.get(childpos));
+					root = childpos; // keep moving down
+			} else { // found right location
+				data.set(root,value);
+				return;
+			}
+			} else { // at a leaf! insert and halt
+				data.set(root,value);
 				return;
 			}
 		}
@@ -124,7 +128,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return data.size();
 	}
 
 	@Override

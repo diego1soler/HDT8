@@ -4,18 +4,18 @@
 * @version 01/10/16
 */
 
-public class Paciente {
+public class Paciente implements Comparable<Paciente> {
     
 	//Atributos
     private String name;
     private String description;
     private String level;
     
-    public Paciente(){
+    public Paciente(String name, String description, String level){
         
-        name = "";
-        description = "";
-        level = "E";
+        this.name = name;
+        this.description =description;
+        this.level = level;
     }
 
     /**
@@ -59,6 +59,20 @@ public class Paciente {
     public void setLevel(String level) {
         this.level = level;
     }
+    
+    public String toString(){
+    	String text= name+", "+description+", "+level;
+    	return text;
+    }
+
+	@Override
+	
+	//CompareTo para los codigos ASCII dentro de los metodos del VectorHeap
+	public int compareTo(Paciente o) {
+		String x=((Paciente)o).getLevel();
+		return level.compareTo(x);
+	}
+    
     
     
     
