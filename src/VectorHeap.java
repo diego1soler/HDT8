@@ -27,18 +27,30 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 		}
 	}
 	
+	/**
+	*Returns parent of node at location i
+	*@param int i
+	*/
 	protected static int parent(int i){
 		//pre: 0<=i<size
 		//post: returns parent of node at location i
 		return (i-1)/2;
 	}
 	
+	/**
+	*Returns index of left child of node at location i
+	*@param int i
+	*/
 	protected static int left(int i){
 		//pre: 0<=i<size
 		//post: returns index of left child of note at location i
 		return 2*i+1;
 	}
 	
+	/**
+	*Returns index of right child of node at location i
+	*@param int i
+	*/
 	protected static int right(int i){
 		//pre: 0<=i<size
 		//post: returns index of right child of node at location i
@@ -46,6 +58,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 	}
 	
 	
+	/**
+	*Moves node at index lead up to appropiate position
+	*@param int leaf
+	*/
 	//Metodos para mover los nodos
 	protected void percolateUp(int leaf){
 		//pre: 0<=leaf<size
@@ -62,6 +78,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 		data.set(leaf,value);
 	}
 	
+	/**
+	*Moves node at index root down to appropiate position in subtree
+	*@param int root
+	*/
 	protected void pushDownRoot(int root){
 		//pre: 0<=root<size
 		//post: moves node at index root down to appropiate position in subtree
@@ -135,11 +155,6 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 	public void clear() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public Paciente get(Paciente wordObject) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }
