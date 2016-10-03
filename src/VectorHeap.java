@@ -136,5 +136,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public Paciente get(Paciente wordObject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
